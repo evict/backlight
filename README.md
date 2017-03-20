@@ -3,7 +3,7 @@ Easy (keyboard) backlight manipulation for Linux.
 
 # Installation
 
-Inside the `Makefile` replace the `BPATH` and `MPATH` variables for `BACKLIGHT` and/or `KBD` to the correct values. The current setting work for Macbook 11,1.
+Inside the `Makefile` replace the `BPATH` and `MPATH` variables for `BACKLIGHT` and/or `KBD` to the correct values. The current setting works for Macbook 11,1.
 To find the correct files use the `find` tool as follows:
 
 ```
