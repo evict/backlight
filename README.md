@@ -3,7 +3,7 @@ Simple (keyboard) back light manipulation for Linux.
 
 # Installation
 
-Inside the `Makefile` replace the `BPATH` and `MPATH` variables for `BACKLIGHT` and/or `KBD` to the correct values. The current setting works for Macbook 11,1.
+Inside the `Makefile` replace the `BPATH` and `MPATH` variables for `BACKLIGHT` and/or `KBD` to the correct values. The `VALUE` parameter can be changed to control the size which increases / decreases the brightness. The current setting works for Macbook 11,1.
 To find the correct files use the `find` tool as follows:
 
 ```
@@ -18,7 +18,7 @@ $ find . -name brightness
 /sys/devices/platform/applesmc.768/leds/smc::kbd_backlight/brightness
 ```
 
-You can also choose to use `/sys/class/backlight/` and/or `/sys/class/leds/`. Both options work.
+You can also choose to use `/sys/class/backlight/` and/or `/sys/class/leds/`. Both options work. 
 After setting the correct paths compile using `make`.
 
 The binaries require SUID and needs to be owned by root.
