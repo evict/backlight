@@ -1,5 +1,5 @@
 # backlight
-Easy (keyboard) back light manipulation for Linux.
+Simple (keyboard) back light manipulation for Linux.
 
 # Installation
 
