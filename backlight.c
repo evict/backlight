@@ -67,7 +67,7 @@ int get_brightness(int max){
     return brightness;
 }
 
-int increase_brigthness() {
+int increase_brightness() {
     int current = get_brightness(0);
     int max = get_brightness(1);
     int new = 0;
@@ -87,7 +87,7 @@ int increase_brigthness() {
     fclose(fd);
 }
 
-int decrease_brigthness() {
+int decrease_brightness() {
     int current = get_brightness(0);
     int new = 0;
     if(current - VALUE <= 0) {
@@ -119,9 +119,9 @@ int main(int argc, char** argv) {
     } else if(!(strncmp(argv[1], "-c", 2))) {
         printf("Current setting: %d\n", get_brightness(0));
     } else if(!(strncmp(argv[1], "-i", 2))) {
-        increase_brigthness();
+        increase_brightness();
     } else if(!(strncmp(argv[1], "-d", 2))) {
-        decrease_brigthness();
+        decrease_brightness();
     }
     return 0;
 }
