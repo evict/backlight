@@ -26,12 +26,12 @@ int get_length(FILE *fd) {
     return i;
 }
 
-int get_brightness(int s){
+int get_brightness(int max){
     int c = 0;
     int i = 0;
-    int b = 0;
+    int brightness = 0;
     char *file;
-    if (s) {
+    if (max) {
         file = malloc(strlen(MPATH));
         if(!file) {
             perror("malloc");
@@ -62,19 +62,19 @@ int get_brightness(int s){
     free(file);
     fclose(fd);
     buff[i] = '\0';
-    b = atoi(buff);
+    brightness = atoi(buff);
 
-    return b;
+    return brightness;
 }
 
 int increase_brigthness() {
-    int c = get_brightness(0);
-    int m = get_brightness(1);
-    int n = 0;
-    if(c + VALUE > m) {
-        n = m;
+    int current = get_brightness(0);
+    int max = get_brightness(1);
+    int new = 0;
+    if(current + VALUE > max) {
+        new = max;
     } else {
-        n = c + VALUE;
+        new = current + VALUE;
     }
     FILE *fd = fopen(BPATH, "w");
     if(!fd) {
@@ -82,18 +82,18 @@ int increase_brigthness() {
         exit(1);
     }
     printf("Writing new value in %s\n", BPATH);
-    fprintf(fd, "%d\n", n);
+    fprintf(fd, "%d\n", new);
     printf("Increased backlight by %d!\n", VALUE);
     fclose(fd);
 }
 
 int decrease_brigthness() {
-    int c = get_brightness(0);
-    int n = 0;
-    if(c - VALUE <= 0) {
-        n = 0;
+    int current = get_brightness(0);
+    int new = 0;
+    if(current - VALUE <= 0) {
+        new = 0;
     } else {
-        n = c - VALUE;
+        new = current - VALUE;
     }
     FILE *fd = fopen(BPATH, "w");
     if(!fd) {
@@ -101,7 +101,7 @@ int decrease_brigthness() {
         exit(1);
     }
     printf("Writing new value in %s\n", BPATH);
-    fprintf(fd, "%d\n", n);
+    fprintf(fd, "%d\n", new);
     printf("Decreased backlight by %d!\n", VALUE);
     fclose(fd);
 }
