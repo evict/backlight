@@ -32,19 +32,19 @@ int get_brightness(int max){
     int brightness = 0;
     char *file;
     if (max) {
-        file = malloc(strlen(MPATH));
+        file = malloc(strlen(MPATH) + 1);
         if(!file) {
             perror("malloc");
             exit(1);
         }
-        strncpy(file, MPATH, strlen(MPATH));
+        strncpy(file, MPATH, strlen(MPATH) + 1);
     } else {
-        file = malloc(strlen(BPATH));
+        file = malloc(strlen(BPATH) + 1);
         if(!file) {
             perror("malloc");
             exit(1);
         }
-        strncpy(file, BPATH, strlen(BPATH));
+        strncpy(file, BPATH, strlen(BPATH) + 1);
     }
     FILE *fd = fopen(file, "r");
     if(!fd) {
