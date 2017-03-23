@@ -85,7 +85,9 @@ int increase_brightness() {
     fprintf(fd, "%d\n", new);
     printf("Increased backlight by %d!\n", VALUE);
     fclose(fd);
-}
+    
+    return 0;
+ }
 
 int decrease_brightness() {
     int current = get_brightness(0);
@@ -104,6 +106,8 @@ int decrease_brightness() {
     fprintf(fd, "%d\n", new);
     printf("Decreased backlight by %d!\n", VALUE);
     fclose(fd);
+    
+    return 0;
 }
 
 void usage(char *name) {
